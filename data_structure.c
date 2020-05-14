@@ -44,17 +44,10 @@ void  print_dlistint(stack_t **h)
 {
 	stack_t *node = *h;
 
-	if (h == NULL)
-		exit(EXIT_FAILURE);
-
-	if (*h != NULL)
+	while (node)
 	{
-		while (node)
-		{
-			printf("%d\n", node->n);
-			node = node->next;
-		}
-
+		printf("%d\n", node->n);
+		node = node->next;
 	}
 }
 

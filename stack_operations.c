@@ -69,7 +69,6 @@ void pop(stack_t **stack, unsigned int line __attribute__((unused)))
 		exit(EXIT_FAILURE);
 	}
 	*stack = (*stack)->next;
-	(*stack)->prev = NULL;
 	free(pt);
 }
 
