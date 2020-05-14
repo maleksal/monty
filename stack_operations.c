@@ -50,7 +50,3 @@ void pint(stack_t **stack, unsigned int line __attribute__((unused)))
 
 	printf("%d\n", (*stack)->n);
 }
-
-
-
-
