@@ -31,3 +31,27 @@ void pall(stack_t **stack, unsigned int line __attribute__((unused)))
 {
 	 print_dlistint(stack);
 }
+
+/**
+  * pint - push given input to stack
+  * @stack: pointer to stack
+  * @line: instruction line in case of error
+  */
+
+
+void pint(stack_t **stack, unsigned int line __attribute__((unused)))
+{
+	stack_t *pt = *stack;
+
+	if (*stack == NULL)
+	{
+		fprintf(stderr, "L%d: can't pint, stack empty", line);
+		exit(EXIT_FAILURE);
+	}
+
+	printf("%d\n", pt->n);
+}
+
+
+
+
