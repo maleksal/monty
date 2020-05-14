@@ -53,3 +53,24 @@ void  print_dlistint(stack_t **h)
 
 	}
 }
+
+/**
+ * free_stack - frees a doubly linked list
+ * @head: pointer to doubly linked list
+ */
+
+void free_stack(stack_t *head)
+{
+	while (head)
+	{
+		if (head->prev != NULL)
+			free(head->prev);
+
+		if (head->next == NULL)
+		{
+			free(head);
+			exit(0);
+		}
+		head = head->next;
+	}
+}

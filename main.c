@@ -1,8 +1,5 @@
 #include "monty.h"
 
-/* Global variable */
-char *op_arg;
-
 /**
  * main - program entry point
  * @argc: length argv
@@ -14,13 +11,10 @@ int main(int argc, char **argv)
 {
 	ssize_t read;
 	size_t size = 0;
-	FILE *fp;
-
-	char *buffer = NULL, *opcode;
-	stack_t *stack = NULL;
-
+	char *opcode;
 	int line = 1;
 
+	glovars.stack = NULL;
 	/* check for arguments */
 	if (argc != 2)
 	{
@@ -28,27 +22,28 @@ int main(int argc, char **argv)
 		exit(EXIT_FAILURE);
 	}
 
-	fp = fopen(argv[1], "r");
-	if (fp == NULL)
+	glovars.fp = fopen(argv[1], "r");
+	if (glovars.fp == NULL)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
 
-	while ((read = getline(&buffer, &size, fp)) != -1)
+	while ((read = getline(&glovars.buffer, &size, glovars.fp)) != -1)
 	{
 		/* split args */
-		opcode = strtok(buffer, " \t\n");
-		op_arg = strtok(NULL, " \t\n");
+		opcode = strtok(glovars.buffer, " \t\n");
+		glovars.op_arg = strtok(NULL, " \t\n");
 
-		if (handle_instruction(opcode, &stack, line) < 0)
+		if (handle_instruction(opcode, &glovars.stack, line) < 0)
 		{
 			fprintf(stderr, "L%d: unknown instruction %s\n", line, opcode);
+			before_exit();
 			exit(EXIT_FAILURE);
 		}
-
 		line++;
-
 	}
+
+	before_exit();
 	return (0);
 }

@@ -9,12 +9,26 @@
 
 int is_digit(char *input)
 {
-	int i;
+	int i = 0;
 
-	for (i = 0; input[i] != '\0'; i++)
+	if (input[0] == '-')
+		i = 1;
+
+	for ( ; input[i] != '\0'; i++)
 	{
 		if (input[i] < 48 || input[i] > 57)
 			return (-1);
 	}
 	return (0);
+}
+
+/**
+ * before_exit - frees necessary data before exit
+ */
+
+void before_exit(void)
+{
+	fclose(glovars.fp);
+	free(glovars.buffer);
+	free_stack(glovars.stack);
 }

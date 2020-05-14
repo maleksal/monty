@@ -6,9 +6,6 @@
 #include<stdio.h>
 #include <string.h>
 
-/* Global variable */
-extern char *op_arg;
-
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -43,6 +40,28 @@ typedef struct instruction_s
 } instruction_t;
 
 
+/**
+ * struct globe - contains globar variables
+ * @buffer: pointer to memory contains data
+ * @op_arg: obtained from file .m
+ * @fp: to read a file
+ * @stack: stack implementation with doubly linked list
+ *
+ * Description: used like global variables
+ */
+
+struct globe
+{
+	char *buffer;
+	char *op_arg;
+	FILE *fp;
+	stack_t *stack;
+} globe;
+
+struct globe glovars;
+
+
+
 /* Function prototypes */
 
 int is_digit(char *input);
@@ -51,6 +70,6 @@ void add_dnodeint(stack_t **head, const int n);
 void push_to_stack(stack_t **stack, unsigned int line __attribute__((unused)));
 void pall(stack_t **stack, unsigned int line __attribute__((unused)));
 void  print_dlistint(stack_t **h);
-
-
+void free_stack(stack_t *head);
+void before_exit(void);
 #endif

@@ -10,13 +10,14 @@ void push_to_stack(stack_t **stack, unsigned int line __attribute__((unused)))
 {
 	int arg;
 
-	if (op_arg == NULL || is_digit(op_arg) < 0)
+	if (glovars.op_arg == NULL || is_digit(glovars.op_arg) < 0)
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line);
+		before_exit();
 		exit(EXIT_FAILURE);
 	}
 
-	arg = atoi(op_arg);
+	arg = atoi(glovars.op_arg);
 	add_dnodeint(stack, arg);
 }
 
