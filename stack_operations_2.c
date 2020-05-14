@@ -54,3 +54,36 @@ void sub(stack_t **stack, unsigned int line __attribute__((unused)))
 	add_dnodeint(stack, sub);
 }
 
+/**
+  * divide_n -  top two  nodes in stack
+  * @stack: pointer to stack
+  * @line: instruction line in case of error
+  */
+
+void divide_n(stack_t **stack, unsigned int line __attribute__((unused)))
+{
+	int div;
+
+	if ((*stack) == NULL || (*stack)->next == NULL)
+	{
+		fprintf(stderr, "L%d: can't add, stack too short\n", line);
+		before_exit();
+		exit(EXIT_FAILURE);
+	}
+
+	if ((*stack)->n == 0)
+	{
+		fprintf(stderr, "L%d: division by zero\n", line);
+		before_exit();
+		exit(EXIT_FAILURE);
+	}
+
+	div = (*stack)->n / (*stack)->next->n;
+
+	/* delete_node */
+	delete_node(stack);
+	delete_node(stack);
+	/* add sum at top of stack */
+	add_dnodeint(stack, div);
+}
+
