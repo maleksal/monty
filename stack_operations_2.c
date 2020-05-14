@@ -66,7 +66,7 @@ void divide_n(stack_t **stack, unsigned int line __attribute__((unused)))
 
 	if ((*stack) == NULL || (*stack)->next == NULL)
 	{
-		fprintf(stderr, "L%d: can't div, stack too short\n", line);
+		fprintf(stderr, "L%d: can't mod, stack too short\n", line);
 		before_exit();
 		exit(EXIT_FAILURE);
 	}
@@ -113,3 +113,38 @@ void mul_n(stack_t **stack, unsigned int line __attribute__((unused)))
 	/* add sum at top of stack */
 	add_dnodeint(stack, mul);
 }
+
+
+/**
+  * mod_n - swap two top nodes in stack
+  * @stack: pointer to stack
+  * @line: instruction line in case of error
+  */
+
+void mod_n(stack_t **stack, unsigned int line __attribute__((unused)))
+{
+	int mod;
+
+	if ((*stack) == NULL || (*stack)->next == NULL)
+	{
+		fprintf(stderr, "L%d: can't div, stack too short\n", line);
+		before_exit();
+		exit(EXIT_FAILURE);
+	}
+
+	if ((*stack)->n == 0)
+	{
+		fprintf(stderr, "L%d: division by zero\n", line);
+		before_exit();
+		exit(EXIT_FAILURE);
+	}
+
+	mod = (*stack)->next->n / (*stack)->n;
+
+	/* delete_node */
+	delete_node(stack);
+	delete_node(stack);
+	/* add sum at top of stack */
+	add_dnodeint(stack, mod);
+}
+

@@ -79,5 +79,6 @@ int delete_node(stack_t **stack);
 void sub(stack_t **stack, unsigned int line __attribute__((unused)));
 void divide_n(stack_t **stack, unsigned int line __attribute__((unused)));
 void mul_n(stack_t **stack, unsigned int line __attribute__((unused)));
+void mod_n(stack_t **stack, unsigned int line __attribute__((unused)));
 
 #endif
