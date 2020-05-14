@@ -10,9 +10,6 @@
 void add_dnodeint(stack_t **head, const int n)
 {
 	stack_t *node;
-	
-	if (head == NULL)
-		exit(EXIT_FAILURE);
 
 	node = malloc(sizeof(stack_t));
 	if (node == NULL)
