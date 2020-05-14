@@ -64,7 +64,7 @@ void pop(stack_t **stack, unsigned int line __attribute__((unused)))
 
 	if (stack == NULL || *stack == NULL)
 	{
-		fprintf(stderr, "L%d: can't pint, stack empty\n", line);
+		fprintf(stderr, "L%d: can't pop an empty stack\n", line);
 		before_exit();
 		exit(EXIT_FAILURE);
 	}
