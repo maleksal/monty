@@ -19,6 +19,7 @@ int handle_instruction(char *opcode, stack_t **stack, unsigned int line)
 	{"pop", pop},
 	{"swap", swap},
 	{"add", add},
+	{"sub", sub},
 	{NULL, NULL}};
 
 	int i;

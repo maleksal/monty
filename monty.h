@@ -76,5 +76,5 @@ void pop(stack_t **stack, unsigned int line __attribute__((unused)));
 void swap(stack_t **stack, unsigned int line __attribute__((unused)));
 void add(stack_t **stack, unsigned int line __attribute__((unused)));
 int delete_node(stack_t **stack);
-
+void sub(stack_t **stack, unsigned int line __attribute__((unused)));
 #endif
