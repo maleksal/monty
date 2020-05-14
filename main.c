@@ -32,14 +32,17 @@ int main(int argc, char **argv)
 	while ((read = getline(&glovars.buffer, &size, glovars.fp)) != -1)
 	{
 		/* split args */
-		opcode = strtok(glovars.buffer, " \t\n");
-		glovars.op_arg = strtok(NULL, " \t\n");
-
-		if (handle_instruction(opcode, &glovars.stack, line) < 0)
+		opcode = strtok(glovars.buffer, "\n ");
+		if (opcode)
 		{
-			fprintf(stderr, "L%d: unknown instruction %s\n", line, opcode);
-			before_exit();
-			exit(EXIT_FAILURE);
+			glovars.op_arg = strtok(NULL, "\n ");
+
+			if (handle_instruction(opcode, &glovars.stack, line) < 0)
+			{
+				fprintf(stderr, "L%d: unknown instruction %s\n", line, opcode);
+				before_exit();
+				exit(EXIT_FAILURE);
+			}
 		}
 		line++;
 	}
