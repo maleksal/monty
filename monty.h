@@ -69,11 +69,10 @@ int handle_instruction(char *opcode, stack_t **stack, unsigned int line);
 void add_dnodeint(stack_t **head, const int n);
 void push_to_stack(stack_t **stack, unsigned int line __attribute__((unused)));
 void pall(stack_t **stack, unsigned int line __attribute__((unused)));
-void  print_dlistint(stack_t **h);
 void free_stack(stack_t *head);
 void before_exit(void);
 void pint(stack_t **stack, unsigned int lin __attribute__((unused)));
 void pop(stack_t **stack, unsigned int line __attribute__((unused)));
 void swap(stack_t **stack, unsigned int line __attribute__((unused)));
-
+void add(stack_t **stack, unsigned int line __attribute__((unused)));
 #endif

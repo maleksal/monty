@@ -29,7 +29,13 @@ void push_to_stack(stack_t **stack, unsigned int line __attribute__((unused)))
 
 void pall(stack_t **stack, unsigned int line __attribute__((unused)))
 {
-	 print_dlistint(stack);
+	stack_t *node = *stack;
+
+	while (node)
+	{
+		printf("%d\n", node->n);
+		node = node->next;
+	}
 }
 
 /**

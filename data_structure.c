@@ -33,25 +33,6 @@ void add_dnodeint(stack_t **head, const int n)
 }
 
 /**
- * print_dlistint - print elements of double linked list
- * and return the number of nodes.
- *
- * @h: pointer to doubly linked list
- * Return: number of nodes
- */
-
-void  print_dlistint(stack_t **h)
-{
-	stack_t *node = *h;
-
-	while (node)
-	{
-		printf("%d\n", node->n);
-		node = node->next;
-	}
-}
-
-/**
  * free_stack - frees a doubly linked list
  * @head: pointer to doubly linked list
  */
