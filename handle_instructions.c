@@ -23,7 +23,9 @@ int handle_instruction(char *opcode, stack_t **stack, unsigned int line)
 
 	int i;
 
-
+	if (strcmp("nop", opcode) == 0)
+		return (0);
+	
 	for (i = 0; opcodes[i].opcode != NULL; i++)
 	{
 		if (opcode != NULL && strcmp(opcodes[i].opcode, opcode) == 0)
