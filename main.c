@@ -33,7 +33,6 @@ int main(int argc, char **argv)
 	{
 		/* split args */
 		opcode = strtok(glovars.buffer, "\n ");
-		printf("%s\n", opcode);
 		if (opcode && opcode[0] != '#')
 		{
 			glovars.op_arg = strtok(NULL, "\n ");
