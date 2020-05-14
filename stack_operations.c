@@ -1,4 +1,4 @@
-#include "header.h"
+#include "monty.h"
 
 /**
  * push_to_stack - push given input to stack

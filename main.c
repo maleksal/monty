@@ -1,4 +1,4 @@
-#include "header.h"
+#include "monty.h"
 
 /* Global variable */
 char *op_arg;
