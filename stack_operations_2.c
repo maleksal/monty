@@ -66,7 +66,7 @@ void divide_n(stack_t **stack, unsigned int line __attribute__((unused)))
 
 	if ((*stack) == NULL || (*stack)->next == NULL)
 	{
-		fprintf(stderr, "L%d: can't mod, stack too short\n", line);
+		fprintf(stderr, "L%d: can't div, stack too short\n", line);
 		before_exit();
 		exit(EXIT_FAILURE);
 	}
@@ -127,7 +127,7 @@ void mod_n(stack_t **stack, unsigned int line __attribute__((unused)))
 
 	if ((*stack) == NULL || (*stack)->next == NULL)
 	{
-		fprintf(stderr, "L%d: can't div, stack too short\n", line);
+		fprintf(stderr, "L%d: can't mod, stack too short\n", line);
 		before_exit();
 		exit(EXIT_FAILURE);
 	}
