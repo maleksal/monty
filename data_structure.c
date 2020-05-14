@@ -60,8 +60,8 @@ int delete_node(stack_t **stack)
 	stack_t *pt = *stack;
 
 	if (stack == NULL || *stack == NULL)
-		return(-1);
+		return (-1);
 	*stack = (*stack)->next;
 	free(pt);
-	return(1);
+	return (1);
 }

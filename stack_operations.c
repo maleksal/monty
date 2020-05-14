@@ -66,7 +66,6 @@ void pint(stack_t **stack, unsigned int line __attribute__((unused)))
 
 void pop(stack_t **stack, unsigned int line __attribute__((unused)))
 {
-	
 	if (delete_node(stack) == -1)
 	{
 		fprintf(stderr, "L%d: can't pop an empty stack\n", line);

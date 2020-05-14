@@ -20,7 +20,7 @@ void add(stack_t **stack, unsigned int line __attribute__((unused)))
 
 	(void) sum;
 	sum = (*stack)->n + (*stack)->next->n;
-	
+
 	/* delete_node */
 	delete_node(stack);
 	delete_node(stack);
