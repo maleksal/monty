@@ -78,7 +78,7 @@ void divide_n(stack_t **stack, unsigned int line __attribute__((unused)))
 		exit(EXIT_FAILURE);
 	}
 
-	div = (*stack)->n / (*stack)->next->n;
+	div = (*stack)->next->n / (*stack)->n;
 
 	/* delete_node */
 	delete_node(stack);
