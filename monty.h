@@ -73,5 +73,6 @@ void  print_dlistint(stack_t **h);
 void free_stack(stack_t *head);
 void before_exit(void);
 void pint(stack_t **stack, unsigned int lin __attribute__((unused)));
+void pop(stack_t **stack, unsigned int line __attribute__((unused)));
 
 #endif

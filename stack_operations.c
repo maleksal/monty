@@ -33,7 +33,7 @@ void pall(stack_t **stack, unsigned int line __attribute__((unused)))
 }
 
 /**
-  * pint - push given input to stack
+  * pint - print from top the  stack
   * @stack: pointer to stack
   * @line: instruction line in case of error
   */
@@ -50,3 +50,26 @@ void pint(stack_t **stack, unsigned int line __attribute__((unused)))
 
 	printf("%d\n", (*stack)->n);
 }
+
+/**
+  * pop - remove from top the stack
+  * @stack: pointer to stack
+  * @line: instruction line in case of error
+  */
+
+
+void pop(stack_t **stack, unsigned int line __attribute__((unused)))
+{
+	stack_t *pt = *stack;
+
+	if (stack == NULL || *stack == NULL)
+	{
+		fprintf(stderr, "L%d: can't pint, stack empty\n", line);
+		before_exit();
+		exit(EXIT_FAILURE);
+	}
+	*stack = (*stack)->next;
+	(*stack)->prev = NULL;
+	free(pt);
+}
+
