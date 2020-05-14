@@ -43,6 +43,9 @@ void  print_dlistint(stack_t **h)
 {
 	stack_t *node = *h;
 
+	if (h == NULL)
+		exit(EXIT_FAILURE);
+
 	if (*h != NULL)
 	{
 		while (node)
