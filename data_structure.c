@@ -59,6 +59,7 @@ void  print_dlistint(stack_t **h)
 void free_stack(stack_t *head)
 {
 	stack_t *node = head;
+
 	while (head)
 	{
 		node = head->next;
