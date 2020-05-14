@@ -21,6 +21,7 @@ int handle_instruction(char *opcode, stack_t **stack, unsigned int line)
 	{"add", add},
 	{"sub", sub},
 	{"div", divide_n},
+	{"mul", mul_n},
 	{NULL, NULL}};
 
 	int i;
