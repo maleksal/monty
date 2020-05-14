@@ -139,7 +139,7 @@ void mod_n(stack_t **stack, unsigned int line __attribute__((unused)))
 		exit(EXIT_FAILURE);
 	}
 
-	mod = (*stack)->next->n / (*stack)->n;
+	mod = (*stack)->next->n % (*stack)->n;
 
 	/* delete_node */
 	delete_node(stack);
