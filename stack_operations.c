@@ -72,3 +72,34 @@ void pop(stack_t **stack, unsigned int line __attribute__((unused)))
 	free(pt);
 }
 
+/**
+  * swap - swap two top nodes in stack
+  * @head: pointer to stack
+  * @line: instruction line in case of error
+  */
+
+
+void swap(stack_t **head, unsigned int line __attribute__((unused)))
+{
+	stack_t *node_1;
+	stack_t *node_2;
+
+	if ((*head) == NULL || (*head)->next == NULL)
+	{
+		fprintf(stderr, "L%d: can't swap, stack too short\n", line);
+		before_exit();
+		exit(EXIT_FAILURE);
+	}
+
+	node_1 = *head;
+	node_2 = (*head)->next;
+	node_1->next = node_2->next;
+	node_1->prev = node_2;
+
+	if (node_1->next)
+		node_1->next->prev = node_1;
+
+	node_2->next = node_1;
+	node_2->prev = NULL;
+	*head = node_2;
+}
