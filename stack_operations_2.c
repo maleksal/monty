@@ -18,7 +18,13 @@ void add(stack_t **stack, unsigned int line __attribute__((unused)))
 		exit(EXIT_FAILURE);
 	}
 
+	(void) sum;
 	sum = (*stack)->n + (*stack)->next->n;
-	printf("%d\n", sum);
+	
+	/* delete_node */
+	delete_node(stack);
+	delete_node(stack);
+	/* add sum at top of stack */
+	add_dnodeint(stack, sum);
 }
 

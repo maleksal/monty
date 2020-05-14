@@ -66,16 +66,13 @@ void pint(stack_t **stack, unsigned int line __attribute__((unused)))
 
 void pop(stack_t **stack, unsigned int line __attribute__((unused)))
 {
-	stack_t *pt = *stack;
-
-	if (stack == NULL || *stack == NULL)
+	
+	if (delete_node(stack) == -1)
 	{
 		fprintf(stderr, "L%d: can't pop an empty stack\n", line);
 		before_exit();
 		exit(EXIT_FAILURE);
 	}
-	*stack = (*stack)->next;
-	free(pt);
 }
 
 /**

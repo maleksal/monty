@@ -48,3 +48,20 @@ void free_stack(stack_t *head)
 		head = node;
 	}
 }
+
+/**
+ * delete_node - delete fisrt node from linked list
+ * @stack: head of linked list
+ * Return: 0 if sucess, 1 if fail
+ */
+
+int delete_node(stack_t **stack)
+{
+	stack_t *pt = *stack;
+
+	if (stack == NULL || *stack == NULL)
+		return(-1);
+	*stack = (*stack)->next;
+	free(pt);
+	return(1);
+}
